@@ -293,7 +293,7 @@
           for (r in (void 0 !== t.ref && (a = t.ref),
           void 0 !== t.key && (o = "" + t.key),
           t))
-            S.call(t, r) && !C.hasOwnProperty(r) && (l[r] = t[r]);
+            S.call(t, r) && !Object.prototype.hasOwnProperty.call(C, r) && (l[r] = t[r]);
         var u = arguments.length - 2;
         if (1 === u) l.children = n;
         else if (1 < u) {
@@ -511,7 +511,7 @@
               var c = e.type.defaultProps;
             for (s in t)
               S.call(t, s) &&
-                !C.hasOwnProperty(s) &&
+                !Object.prototype.hasOwnProperty.call(C, s) &&
                 (l[s] = void 0 === t[s] && void 0 !== c ? c[s] : t[s]);
           }
           var s = arguments.length - 2;
@@ -665,11 +665,11 @@
                   i = n[r],
                   a = t,
                   u = r;
-                if (E.hasOwnProperty(u)) throw Error(o(99, u));
+                if (Object.prototype.hasOwnProperty.call(E, u)) throw Error(o(99, u));
                 E[u] = i;
                 var c = i.phasedRegistrationNames;
                 if (c) {
-                  for (l in c) c.hasOwnProperty(l) && k(c[l], a, u);
+                  for (l in c) Object.prototype.hasOwnProperty.call(c, l) && k(c[l], a, u);
                   l = !0;
                 } else
                   i.registrationName
@@ -692,9 +692,9 @@
         var t,
           n = !1;
         for (t in e)
-          if (e.hasOwnProperty(t)) {
+          if (Object.prototype.hasOwnProperty.call(e, t)) {
             var r = e[t];
-            if (!b.hasOwnProperty(t) || b[t] !== r) {
+            if (!Object.prototype.hasOwnProperty.call(b, t) || b[t] !== r) {
               if (b[t]) throw Error(o(102, t));
               (b[t] = r), (n = !0);
             }
@@ -843,7 +843,7 @@
         });
       var X = r.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
       function G(e, t, n, r) {
-        var l = K.hasOwnProperty(t) ? K[t] : null;
+        var l = Object.prototype.hasOwnProperty.call(K, t) ? K[t] : null;
         (null !== l
           ? 0 === l.type
           : !r &&
@@ -907,9 +907,9 @@
                     3 === (l = l.type) || (4 === l && !0 === n) ? "" : "" + n),
                   r ? e.setAttributeNS(r, t, n) : e.setAttribute(t, n))));
       }
-      X.hasOwnProperty("ReactCurrentDispatcher") ||
+      Object.prototype.hasOwnProperty.call(X, 'ReactCurrentDispatcher') ||
         (X.ReactCurrentDispatcher = { current: null }),
-        X.hasOwnProperty("ReactCurrentBatchConfig") ||
+        Object.prototype.hasOwnProperty.call(X, 'ReactCurrentBatchConfig') ||
           (X.ReactCurrentBatchConfig = { suspense: null });
       var J = /^(.*)[\\\/]/,
         Z = "function" === typeof Symbol && Symbol.for,
@@ -1036,7 +1036,7 @@
               n = Object.getOwnPropertyDescriptor(e.constructor.prototype, t),
               r = "" + e[t];
             if (
-              !e.hasOwnProperty(t) &&
+              !Object.prototype.hasOwnProperty.call(e, t) &&
               "undefined" !== typeof n &&
               "function" === typeof n.get &&
               "function" === typeof n.set
@@ -1116,16 +1116,16 @@
             : e.value !== "" + n && (e.value = "" + n);
         else if ("submit" === r || "reset" === r)
           return void e.removeAttribute("value");
-        t.hasOwnProperty("value")
+        Object.prototype.hasOwnProperty.call(t, 'value')
           ? _e(e, t.type, n)
-          : t.hasOwnProperty("defaultValue") &&
+          : Object.prototype.hasOwnProperty.call(t, 'defaultValue') &&
             _e(e, t.type, ge(t.defaultValue)),
           null == t.checked &&
             null != t.defaultChecked &&
             (e.defaultChecked = !!t.defaultChecked);
       }
       function Ce(e, t, n) {
-        if (t.hasOwnProperty("value") || t.hasOwnProperty("defaultValue")) {
+        if (Object.prototype.hasOwnProperty.call(t, 'value') || Object.prototype.hasOwnProperty.call(t, 'defaultValue')) {
           var r = t.type;
           if (
             !(
@@ -1168,7 +1168,7 @@
           t = {};
           for (var l = 0; l < n.length; l++) t["$" + n[l]] = !0;
           for (n = 0; n < e.length; n++)
-            (l = t.hasOwnProperty("$" + e[n].value)),
+            (l = Object.prototype.hasOwnProperty.call(t, "$" + e[n].value)),
               e[n].selected !== l && (e[n].selected = l),
               l && r && (e[n].defaultSelected = !0);
         } else {
@@ -1294,7 +1294,7 @@
         if (!We[e]) return e;
         var t,
           n = We[e];
-        for (t in n) if (n.hasOwnProperty(t) && t in $e) return (Qe[e] = n[t]);
+        for (t in n) if (Object.prototype.hasOwnProperty.call(n, t) && t in $e) return (Qe[e] = n[t]);
         return e;
       }
       _ &&
@@ -1944,13 +1944,13 @@
           : n ||
             "number" !== typeof t ||
             0 === t ||
-            (Zt.hasOwnProperty(e) && Zt[e])
+            (Object.prototype.hasOwnProperty.call(Zt, e) && Zt[e])
           ? ("" + t).trim()
           : t + "px";
       }
       function nn(e, t) {
         for (var n in ((e = e.style), t))
-          if (t.hasOwnProperty(n)) {
+          if (Object.prototype.hasOwnProperty.call(t, n)) {
             var r = 0 === n.indexOf("--"),
               l = tn(n, t[n], r);
             "float" === n && (n = "cssFloat"),
@@ -2267,7 +2267,7 @@
         (this._targetInst = t),
         (this.nativeEvent = n),
         (e = this.constructor.Interface)))
-          e.hasOwnProperty(l) &&
+          Object.prototype.hasOwnProperty.call(e, l) &&
             ((t = e[l])
               ? (this[l] = t(n))
               : "target" === l
@@ -5144,7 +5144,7 @@
                     ze(r, a), Kt("invalid", r), un(n, "onChange");
                 }
                 for (var u in (ln(i, a), (e = null), a))
-                  if (a.hasOwnProperty(u)) {
+                  if (Object.prototype.hasOwnProperty.call(a, u)) {
                     var c = a[u];
                     "children" === u
                       ? "string" === typeof c
@@ -5152,7 +5152,7 @@
                         : "number" === typeof c &&
                           r.textContent !== "" + c &&
                           (e = ["children", "" + c])
-                      : T.hasOwnProperty(u) && null != c && un(n, u);
+                      : Object.prototype.hasOwnProperty.call(T, u) && null != c && un(n, u);
                   }
                 switch (i) {
                   case "input":
@@ -5244,7 +5244,7 @@
                 ln(i, c);
                 var s = c;
                 for (a in s)
-                  if (s.hasOwnProperty(a)) {
+                  if (Object.prototype.hasOwnProperty.call(s, a)) {
                     var f = s[a];
                     "style" === a
                       ? nn(e, f)
@@ -5257,7 +5257,7 @@
                       : "suppressContentEditableWarning" !== a &&
                         "suppressHydrationWarning" !== a &&
                         "autoFocus" !== a &&
-                        (T.hasOwnProperty(a)
+                        (Object.prototype.hasOwnProperty.call(T, a)
                           ? null != f && un(n, a)
                           : null != f && G(e, a, f, u));
                   }
@@ -5510,33 +5510,33 @@
                   (c.onclick = cn);
             }
             for (a in (ln(n, r), (n = null), o))
-              if (!r.hasOwnProperty(a) && o.hasOwnProperty(a) && null != o[a])
+              if (!Object.prototype.hasOwnProperty.call(r, a) && Object.prototype.hasOwnProperty.call(o, a) && null != o[a])
                 if ("style" === a)
                   for (u in (c = o[a]))
-                    c.hasOwnProperty(u) && (n || (n = {}), (n[u] = ""));
+                    Object.prototype.hasOwnProperty.call(c, u) && (n || (n = {}), (n[u] = ""));
                 else
                   "dangerouslySetInnerHTML" !== a &&
                     "children" !== a &&
                     "suppressContentEditableWarning" !== a &&
                     "suppressHydrationWarning" !== a &&
                     "autoFocus" !== a &&
-                    (T.hasOwnProperty(a)
+                    (Object.prototype.hasOwnProperty.call(T, a)
                       ? e || (e = [])
                       : (e = e || []).push(a, null));
             for (a in r) {
               var s = r[a];
               if (
                 ((c = null != o ? o[a] : void 0),
-                r.hasOwnProperty(a) && s !== c && (null != s || null != c))
+                Object.prototype.hasOwnProperty.call(r, a) && s !== c && (null != s || null != c))
               )
                 if ("style" === a)
                   if (c) {
                     for (u in c)
-                      !c.hasOwnProperty(u) ||
-                        (s && s.hasOwnProperty(u)) ||
+                      !Object.prototype.hasOwnProperty.call(c, u) ||
+                        (s && Object.prototype.hasOwnProperty.call(s, u)) ||
                         (n || (n = {}), (n[u] = ""));
                     for (u in s)
-                      s.hasOwnProperty(u) &&
+                      Object.prototype.hasOwnProperty.call(s, u) &&
                         c[u] !== s[u] &&
                         (n || (n = {}), (n[u] = s[u]));
                   } else n || (e || (e = []), e.push(a, n)), (n = s);
@@ -5551,7 +5551,7 @@
                       (e = e || []).push(a, "" + s)
                     : "suppressContentEditableWarning" !== a &&
                       "suppressHydrationWarning" !== a &&
-                      (T.hasOwnProperty(a)
+                      (Object.prototype.hasOwnProperty.call(T, a)
                         ? (null != s && un(i, a), e || c === s || (e = []))
                         : (e = e || []).push(a, s));
             }
@@ -5993,7 +5993,7 @@
                         (l =
                           void 0 !== (l = e.memoizedProps.style) &&
                           null !== l &&
-                          l.hasOwnProperty("display")
+                          Object.prototype.hasOwnProperty.call(l, 'display')
                             ? l.display
                             : null),
                         (i.style.display = tn("display", l)));

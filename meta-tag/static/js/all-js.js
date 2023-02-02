@@ -41,7 +41,7 @@
         return (r = Object.setPrototypeOf
           ? Object.getPrototypeOf
           : function (e) {
-              return e.__proto__ || Object.getPrototypeOf(e);
+              return Object.getPrototypeOf(e) || Object.getPrototypeOf(e);
             })(e);
       }
       function l() {
@@ -106,7 +106,7 @@
         return (r =
           Object.setPrototypeOf ||
           function (e, t) {
-            return (e.__proto__ = t), e;
+            return (Object.setPrototypeOf(e, t)), e;
           })(e, t);
       }
       function l(e, t) {
